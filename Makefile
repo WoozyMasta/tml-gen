@@ -36,10 +36,10 @@ DATE    := $(shell date -u +%Y-%m-%dT%H:%M:%SZ)
 URL     := https://$(MODULE)
 
 LDFLAGS_X := \
-	-X '$(MODULE)/internal/vars.Version=$(VERSION)' \
-	-X '$(MODULE)/internal/vars.Commit=$(COMMIT)' \
-	-X '$(MODULE)/internal/vars._buildTime=$(DATE)' \
-	-X '$(MODULE)/internal/vars.URL=$(URL)'
+	-X main.Version=$(VERSION) \
+	-X main.Commit=$(COMMIT) \
+	-X main._buildTime=$(DATE) \
+	-X main.URL=$(URL)
 
 # ---------------------------------------------------------------------------
 .PHONY: all build release clean tidy download fmt verify vet tools lint align align-fix \

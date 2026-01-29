@@ -21,6 +21,7 @@ type Options struct {
 	Skip      []string `short:"s" long:"skip" default:"animals" default:"characters" default:"data" default:"gear" default:"vehicles" default:"weapons" description:"Skip path prefixes (repeatable)"`
 	Threshold int      `short:"n" long:"threshold" default:"75" description:"Min objects per library"`
 	Force     bool     `short:"f" long:"force" description:"Delete output directory before writing"`
+	Version   bool     `short:"v" long:"version" description:"Show version"`
 }
 
 func main() {
@@ -36,7 +37,15 @@ Key behavior:
 - Ensures global-unique <Name> across all libraries; only modifies on duplicates.
 - Supports --skip prefix rules (relative to scan-root or game-root) to exclude subtrees.
 - Auto colors and shapes libraries based on their type; unknown types use a hash color.`
-	if _, err := p.Parse(); err != nil {
+
+	_, err := p.Parse()
+
+	if opt.Version {
+		PrintVersion()
+		os.Exit(0)
+	}
+
+	if err != nil {
 		if err == flags.ErrHelp {
 			os.Exit(0)
 		}
