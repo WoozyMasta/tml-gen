@@ -87,3 +87,9 @@ Library header (`<Library ...>`) gets:
 
 Type colors are hardcoded (water = blue, industrial = yellow/brown, etc.).
 Unknown types use a stable hash color.
+
+## Alternatives
+
+* <https://github.com/Treee/DayZDocs/tree/main/TemplateLibraryGenerator>
+
+## 👉 [Support Me](https://gist.github.com/WoozyMasta/7b0cabb538236b7307002c1fbc2d94ea)
